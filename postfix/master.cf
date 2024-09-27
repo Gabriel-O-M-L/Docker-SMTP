@@ -1,0 +1,35 @@
+# Postfix master process configuration file.
+#
+# For details on the format of the file, see the master(5) manual page (command: "man 5 master").
+#
+# ==========================================================================
+# service type  private unpriv  chroot  wakeup  maxproc command + args
+#               (yes)   (yes)   (yes)   (never) (100)
+# ==========================================================================
+smtp      inet  n       -       y       -       -       smtpd
+  -o smtpd_tls_security_level=may
+  -o smtpd_sasl_auth_enable=yes
+  -o smtpd_relay_restrictions=permit_mynetworks,permit_sasl_authenticated,defer_unauth_destination
+  -o smtpd_recipient_restrictions=permit_mynetworks,permit_sasl_authenticated,reject_unauth_destination
+  -o smtpd_tls_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
+  -o smtpd_tls_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
+  -o smtpd_tls_session_cache_database=btree:${data_directory}/smtpd_scache
+  -o smtpd_sasl_type=dovecot
+  -o smtpd_sasl_path=private/auth
+  -o smtpd_sasl_security_options=noanonymous
+  -o smtpd_sasl_local_domain=$myhostname
+  -o smtpd_sasl_authenticated_header=yes
+
+8009      inet  n       -       y       -       -       smtpd
+  -o smtpd_tls_security_level=may
+  -o smtpd_sasl_auth_enable=yes
+  -o smtpd_relay_restrictions=permit_mynetworks,permit_sasl_authenticated,defer_unauth_destination
+  -o smtpd_recipient_restrictions=permit_mynetworks,permit_sasl_authenticated,reject_unauth_destination
+  -o smtpd_tls_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
+  -o smtpd_tls_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
+  -o smtpd_tls_session_cache_database=btree:${data_directory}/smtpd_scache
+  -o smtpd_sasl_type=dovecot
+  -o smtpd_sasl_path=private/auth
+  -o smtpd_sasl_security_options=noanonymous
+  -o smtpd_sasl_local_domain=$myhostname
+  -o smtpd_sasl_authenticated_header=yes

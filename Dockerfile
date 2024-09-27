@@ -6,6 +6,6 @@ RUN apt-get update && \
 
 COPY ./postfix/main.cf /etc/postfix/main.cf
 
-EXPOSE 8001
+EXPOSE 8009
 
 ENTRYPOINT ["postfix", "start-fg"]
