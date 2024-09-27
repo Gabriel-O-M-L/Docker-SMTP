@@ -1,0 +1,15 @@
+myhostname = smtp.ljit.com
+mydomain = example.com
+myorigin = $mydomain
+inet_interfaces = all
+mydestination = $myhostname, localhost.$mydomain, localhost
+relayhost =
+mynetworks = 127.0.0.0/8
+home_mailbox = Maildir/
+smtpd_banner = $myhostname ESMTP $mail_name (Ubuntu)
+biff = no
+append_dot_mydomain = no
+readme_directory = no
+smtp_bind_address = 0.0.0.0
+smtp_bind_address6 = ::
+smtp_bind_port = 8001
