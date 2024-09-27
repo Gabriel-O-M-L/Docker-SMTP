@@ -20,7 +20,7 @@ smtp      inet  n       -       y       -       -       smtpd
   -o smtpd_sasl_local_domain=$myhostname
   -o smtpd_sasl_authenticated_header=yes
 
-8009      inet  n       -       y       -       -       smtpd
+8005      inet  n       -       y       -       -       smtpd
   -o smtpd_tls_security_level=may
   -o smtpd_sasl_auth_enable=yes
   -o smtpd_relay_restrictions=permit_mynetworks,permit_sasl_authenticated,defer_unauth_destination

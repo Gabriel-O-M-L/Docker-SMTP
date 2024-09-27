@@ -1,5 +1,5 @@
 myhostname = smtp.ljit.com
-mydomain = smtp-smtpdserver.9l9kaj.easypanel.host/
+mydomain = smtp-smtpdserver.9l9kaj.easypanel.host
 myorigin = $mydomain
 inet_interfaces = all
 mydestination = $myhostname, localhost.$mydomain, localhost
