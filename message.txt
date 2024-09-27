@@ -1,0 +1,5 @@
+To: gabriel.lima@iesb.edu.br
+From: ljit@labtec.com
+Subject: Test Email
+
+This is a test email sent using Postfix.
