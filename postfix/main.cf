@@ -1,5 +1,5 @@
 myhostname = smtp.ljit.com
-mydomain = smtp-smtpdserver.9l9kaj.easypanel.host
+mydomain = https://smtp-smtpdserver.9l9kaj.easypanel.host/
 myorigin = $mydomain
 inet_interfaces = all
 mydestination = $myhostname, localhost.$mydomain, localhost
@@ -12,4 +12,3 @@ append_dot_mydomain = no
 readme_directory = no
 smtp_bind_address = 0.0.0.0
 smtp_bind_address6 = ::
-smtp_bind_port = 8009

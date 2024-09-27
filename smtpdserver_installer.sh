@@ -1,2 +1,2 @@
 docker build -t smtp-server .
-docker run -d -p 8001:8001 smtp-server
+docker run -d -p 8009:8009 smtp-server
