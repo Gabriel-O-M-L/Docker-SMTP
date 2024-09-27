@@ -6,6 +6,7 @@ RUN apt-get update && \
 
 COPY ./postfix/main.cf /etc/postfix/main.cf
 COPY ./postfix/master.cf /etc/postfix/master.cf
+COPY ./message.txt /usr/local/bin/message.txt
 
 EXPOSE 8009
 
