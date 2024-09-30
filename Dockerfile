@@ -4,6 +4,9 @@ LABEL authors="gabrieloliveira"
 RUN apt-get update && \
     apt-get install -y postfix
 
+RUN adduser --disabled-password --gecos "" ljit && \
+    echo "ljit:123" | chpasswd
+
 COPY ./postfix/main.cf /etc/postfix/main.cf
 COPY ./postfix/master.cf /etc/postfix/master.cf
 COPY ./message.txt /usr/local/bin/message.txt
@@ -19,13 +22,13 @@ RUN chmod 644 /etc/postfix/main.cf && \
 
 
 RUN mkdir -p /var/spool/postfix/public
-RUN chown postfix:postfix /var/spool/postfix/public
+RUN chown postfix:postdrop /var/spool/postfix/public
 RUN chmod 755 /var/spool/postfix/public
 
 
 RUN echo '#!/bin/bash\nsendmail -t < /usr/local/bin/message.txt' > /usr/local/bin/send_email.sh && \
     chmod +x /usr/local/bin/send_email.sh
 
-EXPOSE 8009
+EXPOSE 8005
 
 ENTRYPOINT ["postfix", "start-fg"]
